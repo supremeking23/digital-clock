@@ -42,6 +42,18 @@ window.addEventListener("DOMContentLoaded", function () {
 		var seconds = date.getSeconds(); // 0 - 59
 		var meridiem = "AM";
 
+		// will also run in the military time
+		// alert(hours);
+		if (hours <= 18) {
+			sun.style.display = "block";
+			moon.style.display = "none";
+			body.style.backgroundColor = "#bbb";
+		} else {
+			moon.style.display = "block";
+			sun.style.display = "none";
+			body.style.backgroundColor = "#2a2a2a";
+		}
+
 		if (hours == 0) {
 			hours = 12;
 		}
@@ -51,16 +63,15 @@ window.addEventListener("DOMContentLoaded", function () {
 			meridiem = "PM";
 		}
 
-		// will also run in the military time
-		if (hours < 17) {
-			sun.style.display = "block";
-			moon.style.display = "none";
-			body.style.backgroundColor = "#bbb";
-		} else {
-			moon.style.display = "block";
-			sun.style.display = "none";
-			body.style.backgroundColor = "#2a2a2a";
-		}
+		// if (hours == 17) {
+		// 	sun.style.display = "block";
+		// 	moon.style.display = "none";
+		// 	body.style.backgroundColor = "#bbb";
+		// } else {
+		// 	moon.style.display = "block";
+		// 	sun.style.display = "none";
+		// 	body.style.backgroundColor = "#2a2a2a";
+		// }
 
 		// if (hours > 14) {
 		// 	sun.style.display = "block";
