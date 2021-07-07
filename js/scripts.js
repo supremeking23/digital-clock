@@ -67,27 +67,27 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		// date = new Intl.DateTimeFormat("en-AU", options).format(date);
 
-		var h = date.getHours(); // 0 - 23
-		var m = date.getMinutes(); // 0 - 59
-		var s = date.getSeconds(); // 0 - 59
+		var hours = date.getHours(); // 0 - 23
+		var minutes = date.getMinutes(); // 0 - 59
+		var seconds = date.getSeconds(); // 0 - 59
 		var meridiem = "AM";
 
-		if (h == 0) {
-			h = 12;
-		}
+		// if (hour == 0) {
+		// 	hour = 23;
+		// }
 
-		if (h > 12) {
-			h = h - 12;
+		if (hours > 12) {
+			// h = h - 12;
 			meridiem = "PM";
 		}
 
-		h = h < 10 ? "0" + h : h;
-		m = m < 10 ? "0" + m : m;
-		s = s < 10 ? "0" + s : s;
+		hours = hours < 10 ? "0" + hours : hours;
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds : seconds;
 
-		var time = h + ":" + m + ":" + s + " " + meridiem;
-		clock_military.innerText = "time";
-		clock_military.textContent = "time";
+		var time = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+		clock_military.innerText = time;
+		clock_military.textContent = time;
 
 		//recursive
 		// setTimeout(showTime, 1000); .. will also work because of onload
