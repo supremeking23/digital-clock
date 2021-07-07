@@ -12,6 +12,7 @@ body {
 }
 
 nav {
+	background: #222;
 	font-weight: 600;
 	.nav-wrapper {
 		padding: 0 50px;
@@ -19,6 +20,13 @@ nav {
 		ul {
 			li {
 				margin: 0 10px;
+				button {
+					background: #333;
+					&:hover,
+					&:focus {
+						background: #3b3b3b;
+					}
+				}
 			}
 		}
 	}
@@ -54,8 +62,10 @@ nav {
 
 .sun {
 	top: 60px;
+	display: none;
 }
 
 .moon {
 	bottom: 0;
+	display: none;
 }

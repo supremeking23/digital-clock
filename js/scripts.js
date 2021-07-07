@@ -10,6 +10,10 @@ window.addEventListener("DOMContentLoaded", function () {
 	let clock_standard = document.querySelector(".clock-standard h2");
 	let clock_military = document.querySelector(".clock-military h2");
 
+	let sun = document.querySelector(".sun");
+	let moon = document.querySelector(".moon");
+	let body = document.querySelector("body");
+
 	btn_red.addEventListener("click", function () {
 		clock_standard.style.color = "#ff1744";
 		clock_military.style.color = "#ff1744";
@@ -46,6 +50,25 @@ window.addEventListener("DOMContentLoaded", function () {
 			hours = hours - 12;
 			meridiem = "PM";
 		}
+
+		// will also run in the military time
+		if (hours < 17) {
+			sun.style.display = "block";
+			moon.style.display = "none";
+			body.style.backgroundColor = "#bbb";
+		} else {
+			moon.style.display = "block";
+			sun.style.display = "none";
+			body.style.backgroundColor = "#2a2a2a";
+		}
+
+		// if (hours > 14) {
+		// 	sun.style.display = "block";
+		// 	moon.style.display = "none";
+		// } else {
+		// 	moon.style.display = "block";
+		// 	sun.style.display = "none";
+		// }
 
 		hours = hours < 10 ? "0" + hours : hours;
 		minutes = minutes < 10 ? "0" + minutes : minutes;
