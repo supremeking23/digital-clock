@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Digital Clock</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet" />
+		<link rel="stylesheet/less" type="text/css" href="less/style.less" />
+		<script src="//cdn.jsdelivr.net/npm/less@4.1.1"></script>
+
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<script src="js/scripts.js"></script>
+	</head>
+	<body>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Digital clock</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><button type="button" class="btn time-setting standard-time">Standard Time</button></li>
+					<li><button type="button" class="btn time-setting military-time">Military Time</button></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col s12">
+					<div class="clock clock-standard">
+						<h2>
+							<span class="hour">08</span> : <span class="minute">38</span> : <span class="second">48</span>
+							<span class="meridian">AM</span>
+						</h2>
+					</div>
+
+					<div class="clock clock-military">
+						<h2>
+							<span class="hour">08</span> : <span class="minute">38</span> : <span class="second">48</span>
+							<span class="meridian">AM</span>
+						</h2>
+					</div>
+
+					<div class="color-buttons">
+						<button type="button" class="btn-color red btn">Red</button>
+						<button type="button" class="btn-color purple btn">Purple</button>
+						<button type="button" class="btn-color blue btn">Blue</button>
+						<button type="button" class="btn-color grey default-color btn">Default</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script></script>
+	</body>
+</html>
