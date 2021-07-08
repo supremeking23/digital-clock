@@ -1,12 +1,19 @@
+function initializeDate() {
+	let date = new Date();
+	let hours = date.getHours(); // 0 - 23
+	let minutes = date.getMinutes(); // 0 - 59
+	let seconds = date.getSeconds(); // 0 - 59
+	let meridiem = "AM";
+
+	return { hours, minutes, seconds, meridiem };
+}
+
 window.addEventListener("DOMContentLoaded", function () {
 	let btn_red = document.querySelector(".red");
 	let btn_purple = document.querySelector(".purple");
 	let btn_blue = document.querySelector(".blue");
 	let btn_default_color = document.querySelector(".default-color");
-	let btn_military_time = document.querySelector(".military-time");
-	let btn_standard_time = document.querySelector(".standard-time");
 	let time_setting = document.querySelectorAll(".time-setting");
-	let clock_outer = document.querySelector(".clock");
 	let clock_standard = document.querySelector(".clock-standard h2");
 	let clock_military = document.querySelector(".clock-military h2");
 
@@ -35,12 +42,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	});
 
 	function showStandardTime() {
-		var date = new Date();
-
-		var hours = date.getHours(); // 0 - 23
-		var minutes = date.getMinutes(); // 0 - 59
-		var seconds = date.getSeconds(); // 0 - 59
-		var meridiem = "AM";
+		let { hours, minutes, seconds, meridiem } = initializeDate();
 
 		// will also run in the military time
 		// alert(hours);
@@ -63,29 +65,11 @@ window.addEventListener("DOMContentLoaded", function () {
 			meridiem = "PM";
 		}
 
-		// if (hours == 17) {
-		// 	sun.style.display = "block";
-		// 	moon.style.display = "none";
-		// 	body.style.backgroundColor = "#bbb";
-		// } else {
-		// 	moon.style.display = "block";
-		// 	sun.style.display = "none";
-		// 	body.style.backgroundColor = "#2a2a2a";
-		// }
-
-		// if (hours > 14) {
-		// 	sun.style.display = "block";
-		// 	moon.style.display = "none";
-		// } else {
-		// 	moon.style.display = "block";
-		// 	sun.style.display = "none";
-		// }
-
 		hours = hours < 10 ? "0" + hours : hours;
 		minutes = minutes < 10 ? "0" + minutes : minutes;
 		seconds = seconds < 10 ? "0" + seconds : seconds;
 
-		var time = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+		let time = hours + ":" + minutes + ":" + seconds + " " + meridiem;
 		clock_standard.innerText = time;
 		clock_standard.textContent = time;
 
@@ -97,14 +81,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function showMiltaryTime() {
-		var date = new Date();
-
-		// date = new Intl.DateTimeFormat("en-AU", options).format(date);
-
-		var hours = date.getHours(); // 0 - 23
-		var minutes = date.getMinutes(); // 0 - 59
-		var seconds = date.getSeconds(); // 0 - 59
-		var meridiem = "AM";
+		let { hours, minutes, seconds, meridiem } = initializeDate();
 
 		// if (hour == 0) {
 		// 	hour = 23;
@@ -119,7 +96,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		minutes = minutes < 10 ? "0" + minutes : minutes;
 		seconds = seconds < 10 ? "0" + seconds : seconds;
 
-		var time = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+		let time = hours + ":" + minutes + ":" + seconds + " " + meridiem;
 		clock_military.innerText = time;
 		clock_military.textContent = time;
 
@@ -135,7 +112,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	for (let i = 0; i < time_setting.length; i++) {
 		time_setting[i].addEventListener("click", function () {
-			console.log(this.classList.contains("standard-time"));
+			// console.log(this.classList.contains("standard-time"));
 			if (this.classList.contains("military-time")) {
 				clock_military.style.display = "block";
 				clock_standard.style.display = "none";
@@ -145,15 +122,4 @@ window.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 	}
-
-	// btn_military_time.addEventListener("click", function () {
-	// 	clearInterval(default_set);
-	// 	clock.innerHTML = 10011010;
-	// });
-
-	// btn_standard_time.addEventListener("click", function () {
-	// 	setInterval(() => {
-	// 		clock.innerHTML = showStandardTime();
-	// 	}, 1000);
-	// });
 });
