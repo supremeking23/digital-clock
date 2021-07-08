@@ -8,6 +8,21 @@ function initializeDate() {
 	return { hours, minutes, seconds, meridiem };
 }
 
+function sunAndMoonAppearance(hours) {
+	let sun = document.querySelector(".sun");
+	let moon = document.querySelector(".moon");
+	let body = document.querySelector("body");
+	if (hours <= 18) {
+		sun.style.display = "block";
+		moon.style.display = "none";
+		body.style.backgroundColor = "#bbb";
+	} else {
+		moon.style.display = "block";
+		sun.style.display = "none";
+		body.style.backgroundColor = "#2a2a2a";
+	}
+}
+
 window.addEventListener("DOMContentLoaded", function () {
 	let btn_red = document.querySelector(".red");
 	let btn_purple = document.querySelector(".purple");
@@ -16,10 +31,6 @@ window.addEventListener("DOMContentLoaded", function () {
 	let time_setting = document.querySelectorAll(".time-setting");
 	let clock_standard = document.querySelector(".clock-standard h2");
 	let clock_military = document.querySelector(".clock-military h2");
-
-	let sun = document.querySelector(".sun");
-	let moon = document.querySelector(".moon");
-	let body = document.querySelector("body");
 
 	btn_red.addEventListener("click", function () {
 		clock_standard.style.color = "#ff1744";
@@ -46,15 +57,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		// will also run in the military time
 		// alert(hours);
-		if (hours <= 18) {
-			sun.style.display = "block";
-			moon.style.display = "none";
-			body.style.backgroundColor = "#bbb";
-		} else {
-			moon.style.display = "block";
-			sun.style.display = "none";
-			body.style.backgroundColor = "#2a2a2a";
-		}
+		sunAndMoonAppearance(hours);
 
 		if (hours == 0) {
 			hours = 12;
@@ -77,7 +80,6 @@ window.addEventListener("DOMContentLoaded", function () {
 		// setTimeout(showTime, 1000); .. will also work because of onload
 
 		setInterval(showStandardTime, 1000);
-		// return time;
 	}
 
 	function showMiltaryTime() {
